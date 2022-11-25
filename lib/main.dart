@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:imc_app/controllers/genre_controller.dart';
 import 'package:imc_app/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => GenreController(),
+        )
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
