@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
+import 'package:imc_app/controllers/slider_controller.dart';
 import 'package:imc_app/widgets/age_selector.dart';
 import 'package:imc_app/widgets/button_selector.dart';
 import 'package:imc_app/widgets/height_selector.dart';
@@ -13,8 +14,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Consumer<GenreController>(
-      builder: (context, changenotifier1, child) => Scaffold(
+    return Consumer2<GenreController, SliderControler>(
+      builder: (context, changenotifier1, changenotifier2, child) => Scaffold(
         appBar: AppBar(
           title: const Text('IMC'),
           elevation: 0,
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const HeightSelector(),
+              HeightSelector(changenotifier2: changenotifier2),
               SizedBox(
                 width: size.width,
                 height: size.height * 0.25,

@@ -19,10 +19,10 @@ class ManSelector extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: changenotifier1.manSelect == true
-              ? genreColor
+              ? mainColor
               : Colors.transparent,
           borderRadius: border,
-          border: Border.all(color: Colors.white),
+          border: Border.all(color: borderColor),
         ),
         height: double.infinity,
         width: size.width * 0.45,

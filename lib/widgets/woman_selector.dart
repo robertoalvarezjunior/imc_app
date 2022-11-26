@@ -15,11 +15,14 @@ class WomanSelector extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: changenotifier1.womanSelect == true
-                ? genreColor
-                : Colors.transparent,
-            borderRadius: border,
-            border: Border.all(color: Colors.white)),
+          color: changenotifier1.womanSelect == true
+              ? mainColor
+              : Colors.transparent,
+          borderRadius: border,
+          border: Border.all(
+            color: borderColor,
+          ),
+        ),
         height: double.infinity,
         width: size.width * 0.45,
         child: Column(
