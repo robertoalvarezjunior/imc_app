@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imc_app/constants/colors_class.dart';
 
 class ButtonSelector extends StatefulWidget {
   const ButtonSelector({super.key});
@@ -12,9 +13,12 @@ class _ButtonSelectorState extends State<ButtonSelector> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {},
-      child: const Text(
+      child: Text(
         'CALCULAR IMC',
-        style: TextStyle(fontSize: 26),
+        style: TextStyle(
+          fontSize: 26,
+          color: ColorsClass.mainColors['containerColor'],
+        ),
       ),
     );
   }

@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:imc_app/constants/colors_class.dart';
 import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
 
 class WomanSelector extends StatelessWidget {
-  const WomanSelector({super.key, required this.changenotifier1});
-  final GenreController changenotifier1;
+  const WomanSelector({super.key, required this.genre});
+  final GenreController genre;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        changenotifier1.isgenreSelected();
+        genre.isgenreSelected();
       },
       child: Container(
         decoration: BoxDecoration(
-          color: changenotifier1.womanSelect == true
-              ? mainColor
+          color: genre.womanSelect == true
+              ? ColorsClass.mainColors['containerColor']
               : Colors.transparent,
           borderRadius: border,
           border: Border.all(
-            color: borderColor,
+            color: ColorsClass.mainColors['containerBorder']!,
           ),
         ),
-        height: double.infinity,
         width: size.width * 0.45,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -35,7 +35,14 @@ class WomanSelector extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            const Text('Mulher'),
+            Text(
+              'Mulher',
+              style: TextStyle(
+                color: genre.womanSelect == true
+                    ? ColorsClass.mainColors['genreSelectedColor']
+                    : ColorsClass.mainColors['mainTextColor'],
+              ),
+            ),
           ],
         ),
       ),

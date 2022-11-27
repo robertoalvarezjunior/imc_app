@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:imc_app/constants/colors_class.dart';
 import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/controllers/slider_controller.dart';
 import 'package:provider/provider.dart';
 
 class HeightSelector extends StatelessWidget {
-  const HeightSelector({super.key, required this.changenotifier2});
-  final SliderControler changenotifier2;
+  const HeightSelector({super.key, required this.slider});
+  final SliderControler slider;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +17,9 @@ class HeightSelector extends StatelessWidget {
       width: double.infinity,
       height: size.height * 0.25,
       decoration: BoxDecoration(
-        color: mainColor,
+        color: ColorsClass.mainColors['containerColor'],
         borderRadius: border,
-        border: Border.all(color: borderColor),
+        border: Border.all(color: ColorsClass.mainColors['containerBorder']!),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -26,17 +27,16 @@ class HeightSelector extends StatelessWidget {
           const Text('Altura'),
           Text(
             sliderValue.currentSliderValue.round().toString(),
-            style: const TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            ),
+            style: valueStyle,
           ),
-          Slider(
+          Slider.adaptive(
+            activeColor: ColorsClass.mainColors['main'],
+            inactiveColor: ColorsClass.mainColors['mainAcent'],
             max: 250,
             divisions: 250,
             label: sliderValue.currentSliderValue.round().toString(),
             value: sliderValue.currentSliderValue,
-            onChanged: (value) => changenotifier2.sliderState(value),
+            onChanged: (value) => slider.sliderState(value),
           )
         ],
       ),
