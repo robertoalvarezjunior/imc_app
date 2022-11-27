@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:imc_app/controllers/age_controller.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
 import 'package:imc_app/controllers/slider_controller.dart';
 import 'package:imc_app/controllers/weight_controller.dart';
-import 'package:imc_app/widgets/age_selector.dart';
+import 'package:imc_app/widgets/age_container.dart';
 import 'package:imc_app/widgets/appbar.dart';
-import 'package:imc_app/widgets/button_selector.dart';
-import 'package:imc_app/widgets/height_selector.dart';
-import 'package:imc_app/widgets/man_selector.dart';
-import 'package:imc_app/widgets/weight_selector.dart';
-import 'package:imc_app/widgets/woman_selector.dart';
+import 'package:imc_app/widgets/button_container.dart';
+import 'package:imc_app/widgets/height_container.dart';
+import 'package:imc_app/widgets/male_container.dart';
+import 'package:imc_app/widgets/weight_container.dart';
+import 'package:imc_app/widgets/female_container.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,15 +34,15 @@ class HomeScreen extends StatelessWidget {
                 builder: (context, genre, child) => Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ManSelector(genre: genre),
-                    WomanSelector(genre: genre),
+                    MaleContainer(genre: genre),
+                    FemaleContainer(genre: genre),
                   ],
                 ),
               ),
             ),
             Consumer<SliderControler>(
               builder: (context, slider, child) =>
-                  HeightSelector(slider: slider),
+                  HeightContainer(slider: slider),
             ),
             SizedBox(
               width: sizeW,
@@ -50,16 +51,21 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Consumer<WeightController>(
-                    builder: (context, value, child) => const WeightSelector(),
+                    builder: (context, weight, child) =>
+                        WeightContainer(weight: weight),
                   ),
-                  const AgeSelector(),
+                  Consumer<AgeController>(
+                    builder: (context, age, child) => AgeContainer(
+                      age: age,
+                    ),
+                  ),
                 ],
               ),
             ),
             SizedBox(
               height: sizeH * 0.1,
               width: double.infinity,
-              child: const ButtonSelector(),
+              child: const ButtonContainer(),
             ),
           ],
         ),

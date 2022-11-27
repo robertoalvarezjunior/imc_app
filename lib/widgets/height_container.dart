@@ -4,8 +4,8 @@ import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/controllers/slider_controller.dart';
 import 'package:provider/provider.dart';
 
-class HeightSelector extends StatelessWidget {
-  const HeightSelector({super.key, required this.slider});
+class HeightContainer extends StatelessWidget {
+  const HeightContainer({super.key, required this.slider});
   final SliderControler slider;
 
   @override

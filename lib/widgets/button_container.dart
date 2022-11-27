@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:imc_app/constants/colors_class.dart';
 
-class ButtonSelector extends StatefulWidget {
-  const ButtonSelector({super.key});
+class ButtonContainer extends StatefulWidget {
+  const ButtonContainer({super.key});
 
   @override
-  State<ButtonSelector> createState() => _ButtonSelectorState();
+  State<ButtonContainer> createState() => _ButtonContainerState();
 }
 
-class _ButtonSelectorState extends State<ButtonSelector> {
+class _ButtonContainerState extends State<ButtonContainer> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

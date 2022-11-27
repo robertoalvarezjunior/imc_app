@@ -3,8 +3,11 @@ import 'package:imc_app/constants/colors_class.dart';
 import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
 
-class WomanSelector extends StatelessWidget {
-  const WomanSelector({super.key, required this.genre});
+class MaleContainer extends StatelessWidget {
+  const MaleContainer({
+    super.key,
+    required this.genre,
+  });
   final GenreController genre;
 
   @override
@@ -16,13 +19,11 @@ class WomanSelector extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: genre.womanSelect == true
+          color: genre.manSelect == true
               ? ColorsClass.mainColors['containerColor']
               : Colors.transparent,
           borderRadius: border,
-          border: Border.all(
-            color: ColorsClass.mainColors['containerBorder']!,
-          ),
+          border: Border.all(color: ColorsClass.mainColors['containerBorder']!),
         ),
         width: size.width * 0.45,
         child: Column(
@@ -31,14 +32,14 @@ class WomanSelector extends StatelessWidget {
             SizedBox(
               width: size.width * 0.2,
               child: Image.asset(
-                'assets/female.png',
+                'assets/male.png',
                 fit: BoxFit.cover,
               ),
             ),
             Text(
-              'Mulher',
+              'Homem',
               style: TextStyle(
-                color: genre.womanSelect == true
+                color: genre.manSelect == true
                     ? ColorsClass.mainColors['genreSelectedColor']
                     : ColorsClass.mainColors['mainTextColor'],
               ),
