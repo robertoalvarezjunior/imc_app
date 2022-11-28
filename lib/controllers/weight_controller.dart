@@ -1,16 +1,27 @@
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 
 class WeightController with ChangeNotifier {
-  int _weight = 50;
+  double _weight = 50;
+  NumberFormat formato = NumberFormat('00.#');
+  get weight => formato.format(_weight);
 
-  get weight => _weight;
+  weightAddTap() {
+    _weight += 0.1;
+    notifyListeners();
+  }
 
-  weightAdd() {
+  weightAddLongPress() {
     _weight++;
     notifyListeners();
   }
 
-  weightRemove() {
+  weightRemoveTap() {
+    _weight -= 0.1;
+    notifyListeners();
+  }
+
+  weightRemoveLongPress() {
     _weight--;
     notifyListeners();
   }

@@ -6,20 +6,20 @@ import 'package:imc_app/controllers/genre_controller.dart';
 class MaleContainer extends StatelessWidget {
   const MaleContainer({
     super.key,
-    required this.genre,
+    required this.changenotifierGenre,
   });
-  final GenreController genre;
+  final GenreController changenotifierGenre;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        genre.isgenreSelected();
+        changenotifierGenre.isgenreSelected();
       },
       child: Container(
         decoration: BoxDecoration(
-          color: genre.manSelect == true
+          color: changenotifierGenre.manSelect == true
               ? ColorsClass.mainColors['containerColor']
               : Colors.transparent,
           borderRadius: border,
@@ -39,7 +39,7 @@ class MaleContainer extends StatelessWidget {
             Text(
               'Homem',
               style: TextStyle(
-                color: genre.manSelect == true
+                color: changenotifierGenre.manSelect == true
                     ? ColorsClass.mainColors['genreSelectedColor']
                     : ColorsClass.mainColors['mainTextColor'],
               ),

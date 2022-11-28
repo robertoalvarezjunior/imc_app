@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SliderControler with ChangeNotifier {
+class HeightControler with ChangeNotifier {
   double _currentSliderValue = 50;
   get currentSliderValue => _currentSliderValue;
   sliderState(value) {

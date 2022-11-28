@@ -4,19 +4,19 @@ import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
 
 class FemaleContainer extends StatelessWidget {
-  const FemaleContainer({super.key, required this.genre});
-  final GenreController genre;
+  const FemaleContainer({super.key, required this.changenotifierGenre});
+  final GenreController changenotifierGenre;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        genre.isgenreSelected();
+        changenotifierGenre.isgenreSelected();
       },
       child: Container(
         decoration: BoxDecoration(
-          color: genre.womanSelect == true
+          color: changenotifierGenre.womanSelect == true
               ? ColorsClass.mainColors['containerColor']
               : Colors.transparent,
           borderRadius: border,
@@ -38,7 +38,7 @@ class FemaleContainer extends StatelessWidget {
             Text(
               'Mulher',
               style: TextStyle(
-                color: genre.womanSelect == true
+                color: changenotifierGenre.womanSelect == true
                     ? ColorsClass.mainColors['genreSelectedColor']
                     : ColorsClass.mainColors['mainTextColor'],
               ),

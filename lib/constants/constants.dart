@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:imc_app/constants/colors_class.dart';
 
@@ -8,3 +10,5 @@ TextStyle valueStyle = TextStyle(
   fontWeight: FontWeight.bold,
   color: ColorsClass.mainColors['textValueColor'],
 );
+
+Timer? timer;

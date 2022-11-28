@@ -1,16 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:imc_app/constants/colors_class.dart';
 import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/controllers/age_controller.dart';
-import 'package:provider/provider.dart';
 
 class AgeContainer extends StatelessWidget {
-  const AgeContainer({super.key, required this.age});
-  final AgeController age;
+  const AgeContainer({super.key, required this.changenotifierAge});
+  final AgeController changenotifierAge;
 
   @override
   Widget build(BuildContext context) {
-    AgeController ageValue = context.watch<AgeController>();
     Size size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
@@ -22,9 +22,9 @@ class AgeContainer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Text('Peso'),
+          const Text('Idade'),
           Text(
-            ageValue.age.toString(),
+            changenotifierAge.age.toString(),
             style: valueStyle,
           ),
           Row(
@@ -37,8 +37,13 @@ class AgeContainer extends StatelessWidget {
                 ),
                 height: size.height * 0.06,
                 width: size.width * 0.20,
-                child: InkWell(
-                  onTap: () => age.ageRemove(),
+                child: GestureDetector(
+                  onTap: () => changenotifierAge.ageRemove(),
+                  onLongPress: () => timer = Timer.periodic(
+                    const Duration(milliseconds: 100),
+                    (timer) => changenotifierAge.ageRemove(),
+                  ),
+                  onLongPressEnd: (details) => timer?.cancel(),
                   child: Icon(
                     Icons.remove,
                     size: 30,
@@ -53,8 +58,13 @@ class AgeContainer extends StatelessWidget {
                 ),
                 height: size.height * 0.06,
                 width: size.width * 0.20,
-                child: InkWell(
-                  onTap: () => age.ageAdd(),
+                child: GestureDetector(
+                  onTap: () => changenotifierAge.ageAdd(),
+                  onLongPress: () => timer = Timer.periodic(
+                    const Duration(milliseconds: 100),
+                    (timer) => changenotifierAge.ageAdd(),
+                  ),
+                  onLongPressEnd: (details) => timer?.cancel(),
                   child: Icon(
                     Icons.add,
                     size: 30,
