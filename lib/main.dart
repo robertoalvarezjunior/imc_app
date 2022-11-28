@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imc_app/constants/colors_class.dart';
 import 'package:imc_app/controllers/age_controller.dart';
+import 'package:imc_app/controllers/calc_imc.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
 import 'package:imc_app/controllers/height_controller.dart';
 import 'package:imc_app/controllers/weight_controller.dart';
@@ -22,6 +23,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (context) => AgeController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CalcImc(),
         ),
       ],
       child: const MyApp(),

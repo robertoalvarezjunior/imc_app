@@ -25,7 +25,7 @@ class AgeContainer extends StatelessWidget {
           const Text('Idade'),
           Text(
             changenotifierAge.age.toString(),
-            style: valueStyle,
+            style: valueStyle(32),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

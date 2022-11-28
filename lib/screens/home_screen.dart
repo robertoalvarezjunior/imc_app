@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imc_app/controllers/age_controller.dart';
+import 'package:imc_app/controllers/calc_imc.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
 import 'package:imc_app/controllers/height_controller.dart';
 import 'package:imc_app/controllers/weight_controller.dart';
@@ -20,14 +21,15 @@ class HomeScreen extends StatelessWidget {
     double sizeH = MediaQuery.of(context).size.height -
         appBar.preferredSize.height -
         MediaQuery.of(context).padding.top;
-    return Consumer4<GenreController, HeightControler, WeightController,
-        AgeController>(
+    return Consumer5<GenreController, HeightControler, WeightController,
+        AgeController, CalcImc>(
       builder: (
         context,
         changenotifierGenre,
         changenotifierHeight,
         changenotifierWeight,
         changenotifierAge,
+        changenotifierIMC,
         child,
       ) =>
           Scaffold(
@@ -66,8 +68,11 @@ class HomeScreen extends StatelessWidget {
                 height: sizeH * 0.1,
                 width: double.infinity,
                 child: ButtonContainer(
-                  peso: changenotifierWeight,
-                  altura: changenotifierHeight,
+                  changenotifierGenre: changenotifierGenre,
+                  changenotifierAge: changenotifierAge,
+                  changenotifierIMC: changenotifierIMC,
+                  changenotifierWeight: changenotifierWeight,
+                  changenotifierHeight: changenotifierHeight,
                 ),
               ),
             ],

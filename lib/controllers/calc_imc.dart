@@ -1,13 +1,13 @@
-class CalcImc {
-  CalcImc({
-    required this.altura,
-    required this.peso,
-  });
-  double altura;
-  double peso;
+import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 
-  double calcImc(altura, peso) {
-    double result = peso / (altura * altura);
-    return result;
+class CalcImc with ChangeNotifier {
+  double? _result;
+  NumberFormat formato = NumberFormat('00.#');
+  get result => formato.format(_result);
+
+  calcImc(altura, peso) {
+    _result = peso / (altura * altura);
+    notifyListeners();
   }
 }

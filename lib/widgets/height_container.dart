@@ -24,16 +24,18 @@ class HeightContainer extends StatelessWidget {
         children: [
           const Text('Altura'),
           Text(
-            changenotifierSlider.currentSliderValue.round().toString(),
-            style: valueStyle,
+            changenotifierSlider.currentSliderValue
+                .toString()
+                .replaceAll('.', ','),
+            style: valueStyle(32),
           ),
           Slider.adaptive(
             activeColor: ColorsClass.mainColors['main'],
             inactiveColor: ColorsClass.mainColors['mainAcent'],
-            max: 250,
+            max: 2.5,
             divisions: 250,
-            label: changenotifierSlider.currentSliderValue.round().toString(),
-            value: changenotifierSlider.currentSliderValue,
+            label: changenotifierSlider.currentSliderValue.toString(),
+            value: double.parse(changenotifierSlider.currentSliderValue),
             onChanged: (value) => changenotifierSlider.sliderState(value),
           )
         ],

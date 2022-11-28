@@ -25,7 +25,7 @@ class WeightContainer extends StatelessWidget {
           const Text('Peso'),
           Text(
             changenotifierWeight.weight.toString(),
-            style: valueStyle,
+            style: valueStyle(32),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
