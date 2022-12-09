@@ -29,6 +29,7 @@ class DialogResult extends StatelessWidget {
       elevation: 5,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             'Seu Gênero é: ${changenotifierGenre.manSelect ? 'Homem' : 'Mulher'}',
