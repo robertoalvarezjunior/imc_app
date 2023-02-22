@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
-class WeightController with ChangeNotifier {
+class WeightController extends ChangeNotifier {
   double _weight = 50;
   NumberFormat formato = NumberFormat('00.#');
   get weight => formato.format(_weight);

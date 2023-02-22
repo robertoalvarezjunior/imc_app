@@ -12,6 +12,7 @@ class MaleContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, Color> color = ColorsClass.colors(context);
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
@@ -20,10 +21,10 @@ class MaleContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: changenotifierGenre.manSelect == true
-              ? ColorsClass.mainColors['containerColor']
+              ? color['containerColor']
               : Colors.transparent,
           borderRadius: border,
-          border: Border.all(color: ColorsClass.mainColors['containerBorder']!),
+          border: Border.all(color: color['containerBorder']!),
         ),
         width: size.width * 0.45,
         child: Column(
@@ -40,8 +41,8 @@ class MaleContainer extends StatelessWidget {
               'Homem',
               style: TextStyle(
                 color: changenotifierGenre.manSelect == true
-                    ? ColorsClass.mainColors['genreSelectedColor']
-                    : ColorsClass.mainColors['mainTextColor'],
+                    ? color['genreSelectedColor']
+                    : color['mainTextColor'],
               ),
             ),
           ],

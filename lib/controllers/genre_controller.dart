@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GenreController with ChangeNotifier {
+class GenreController extends ChangeNotifier {
   bool manSelect;
   bool womanSelect;
   GenreController({this.manSelect = false, this.womanSelect = true});

@@ -10,14 +10,14 @@ class HeightContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    Map<String, Color> color = ColorsClass.colors(context);
     return Container(
       width: double.infinity,
       height: size.height * 0.25,
       decoration: BoxDecoration(
-        color: ColorsClass.mainColors['containerColor'],
+        color: color['containerColor'],
         borderRadius: border,
-        border: Border.all(color: ColorsClass.mainColors['containerBorder']!),
+        border: Border.all(color: color['containerBorder']!),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -27,17 +27,21 @@ class HeightContainer extends StatelessWidget {
             changenotifierSlider.currentSliderValue
                 .toString()
                 .replaceAll('.', ','),
-            style: valueStyle(32),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: color['textValueColor'],
+            ),
           ),
           Slider.adaptive(
-            activeColor: ColorsClass.mainColors['main'],
-            inactiveColor: ColorsClass.mainColors['mainAcent'],
+            activeColor: color['main'],
+            inactiveColor: color['mainAcent'],
             max: 2.5,
             divisions: 250,
             label: changenotifierSlider.currentSliderValue.toString(),
             value: double.parse(changenotifierSlider.currentSliderValue),
             onChanged: (value) => changenotifierSlider.sliderState(value),
-          )
+          ),
         ],
       ),
     );

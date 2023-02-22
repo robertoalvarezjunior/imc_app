@@ -10,6 +10,7 @@ class FemaleContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    Map<String, Color> color = ColorsClass.colors(context);
     return GestureDetector(
       onTap: () {
         changenotifierGenre.isgenreSelected();
@@ -17,11 +18,11 @@ class FemaleContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: changenotifierGenre.womanSelect == true
-              ? ColorsClass.mainColors['containerColor']
+              ? color['containerColor']
               : Colors.transparent,
           borderRadius: border,
           border: Border.all(
-            color: ColorsClass.mainColors['containerBorder']!,
+            color: color['containerBorder']!,
           ),
         ),
         width: size.width * 0.45,
@@ -39,8 +40,8 @@ class FemaleContainer extends StatelessWidget {
               'Mulher',
               style: TextStyle(
                 color: changenotifierGenre.womanSelect == true
-                    ? ColorsClass.mainColors['genreSelectedColor']
-                    : ColorsClass.mainColors['mainTextColor'],
+                    ? color['genreSelectedColor']
+                    : color['mainTextColor'],
               ),
             ),
           ],

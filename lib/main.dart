@@ -1,5 +1,5 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:imc_app/constants/colors_class.dart';
 import 'package:imc_app/controllers/age_controller.dart';
 import 'package:imc_app/controllers/calc_imc.dart';
 import 'package:imc_app/controllers/genre_controller.dart';
@@ -40,22 +40,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: TextTheme(
-          bodyText2: TextStyle(
-            fontSize: 24,
-            color: ColorsClass.mainColors['mainTextColor'],
-          ),
+      theme: FlexThemeData.light(
+        scheme: FlexScheme.greyLaw,
+        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+        blendLevel: 9,
+        subThemesData: const FlexSubThemesData(
+          blendOnLevel: 10,
+          blendOnColors: false,
         ),
-        primarySwatch: Colors.blue,
-        brightness: Brightness.dark,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: ColorsClass.mainColors['main'],
-            elevation: 5,
-          ),
-        ),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        useMaterial3: true,
+        swapLegacyOnMaterial3: true,
       ),
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.greyLaw,
+        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+        blendLevel: 15,
+        subThemesData: const FlexSubThemesData(
+          blendOnLevel: 20,
+        ),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        useMaterial3: true,
+        swapLegacyOnMaterial3: true,
+      ),
+      themeMode: ThemeMode.system,
       home: const HomeScreen(),
     );
   }

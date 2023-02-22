@@ -24,6 +24,7 @@ class ButtonContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, Color> color = ColorsClass.colors(context);
     return ElevatedButton(
       onPressed: () {
         changenotifierIMC.calcImc(
@@ -40,11 +41,12 @@ class ButtonContainer extends StatelessWidget {
           ),
         );
       },
+      style: ElevatedButton.styleFrom(backgroundColor: color['main']),
       child: Text(
         'CALCULAR IMC',
         style: TextStyle(
           fontSize: 26,
-          color: ColorsClass.mainColors['containerColor'],
+          color: color['textValueColor'],
         ),
       ),
     );

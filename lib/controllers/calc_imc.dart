@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
-class CalcImc with ChangeNotifier {
+class CalcImc extends ChangeNotifier {
   double? _result;
   NumberFormat formato = NumberFormat('00.#');
   get result => formato.format(_result);

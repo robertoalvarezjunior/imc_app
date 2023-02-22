@@ -12,11 +12,12 @@ class WeightContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    Map<String, Color> color = ColorsClass.colors(context);
     return Container(
       decoration: BoxDecoration(
-        color: ColorsClass.mainColors['containerColor'],
+        color: color['containerColor'],
         borderRadius: border,
-        border: Border.all(color: ColorsClass.mainColors['containerBorder']!),
+        border: Border.all(color: color['containerBorder']!),
       ),
       width: size.width * 0.45,
       child: Column(
@@ -25,7 +26,11 @@ class WeightContainer extends StatelessWidget {
           const Text('Peso'),
           Text(
             changenotifierWeight.weight.toString(),
-            style: valueStyle(32),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: color['textValueColor'],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +38,7 @@ class WeightContainer extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: ColorsClass.mainColors['main'],
+                  color: color['main'],
                 ),
                 height: size.height * 0.06,
                 width: size.width * 0.20,
@@ -47,14 +52,14 @@ class WeightContainer extends StatelessWidget {
                   child: Icon(
                     Icons.remove,
                     size: 30,
-                    color: ColorsClass.mainColors['textButton'],
+                    color: color['textButton'],
                   ),
                 ),
               ),
               Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: ColorsClass.mainColors['main'],
+                  color: color['main'],
                 ),
                 height: size.height * 0.06,
                 width: size.width * 0.20,
@@ -68,7 +73,7 @@ class WeightContainer extends StatelessWidget {
                   child: Icon(
                     Icons.add,
                     size: 30,
-                    color: ColorsClass.mainColors['textButton'],
+                    color: color['textButton'],
                   ),
                 ),
               ),
